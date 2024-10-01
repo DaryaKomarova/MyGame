@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Сахар")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f30c060406183c81894d32162a840e5d9c29f8ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+183f8f15347cef90929b30aea55a510356a664a5")]
 [assembly: System.Reflection.AssemblyProductAttribute("Сахар")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Сахар")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
