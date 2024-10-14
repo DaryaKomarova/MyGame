@@ -30,15 +30,16 @@
         {
             button1 = new Button();
             button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
+            _1_2 = new Button();
+            _1_1 = new Button();
+            _1_3 = new Button();
+            _2_1 = new Button();
+            _2_2 = new Button();
+            _2_3 = new Button();
+            _3_1 = new Button();
+            _3_2 = new Button();
+            _3_3 = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // button1
@@ -61,119 +62,140 @@
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
-            // button3
+            // _1_2
             // 
-            button3.Location = new Point(310, 111);
-            button3.Name = "button3";
-            button3.Size = new Size(126, 103);
-            button3.TabIndex = 2;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            _1_2.Location = new Point(310, 111);
+            _1_2.Name = "_1_2";
+            _1_2.Size = new Size(126, 103);
+            _1_2.TabIndex = 2;
+            _1_2.Text = "button3";
+            _1_2.UseVisualStyleBackColor = true;
+            _1_2.Click += _1_2_Click;
             // 
-            // button4
+            // _1_1
             // 
-            button4.Location = new Point(178, 111);
-            button4.Name = "button4";
-            button4.Size = new Size(126, 103);
-            button4.TabIndex = 3;
-            button4.Text = "button4";
-            button4.UseVisualStyleBackColor = true;
+            _1_1.Location = new Point(178, 111);
+            _1_1.Name = "_1_1";
+            _1_1.Size = new Size(126, 103);
+            _1_1.TabIndex = 3;
+            _1_1.Text = "button4";
+            _1_1.UseVisualStyleBackColor = true;
+            _1_1.Click += button4_Click;
             // 
-            // button5
+            // _1_3
             // 
-            button5.Location = new Point(442, 111);
-            button5.Name = "button5";
-            button5.Size = new Size(126, 103);
-            button5.TabIndex = 4;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = true;
+            _1_3.Location = new Point(442, 111);
+            _1_3.Name = "_1_3";
+            _1_3.Size = new Size(126, 103);
+            _1_3.TabIndex = 4;
+            _1_3.Text = "button5";
+            _1_3.UseVisualStyleBackColor = true;
+            _1_3.Click += _1_3_Click;
             // 
-            // button6
+            // _2_1
             // 
-            button6.Location = new Point(178, 220);
-            button6.Name = "button6";
-            button6.Size = new Size(126, 103);
-            button6.TabIndex = 5;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
+            _2_1.Location = new Point(178, 220);
+            _2_1.Name = "_2_1";
+            _2_1.Size = new Size(126, 103);
+            _2_1.TabIndex = 5;
+            _2_1.Text = "button6";
+            _2_1.UseVisualStyleBackColor = true;
+            _2_1.Click += _2_1_Click;
             // 
-            // button7
+            // _2_2
             // 
-            button7.Location = new Point(310, 220);
-            button7.Name = "button7";
-            button7.Size = new Size(126, 103);
-            button7.TabIndex = 6;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
+            _2_2.Location = new Point(310, 220);
+            _2_2.Name = "_2_2";
+            _2_2.Size = new Size(126, 103);
+            _2_2.TabIndex = 6;
+            _2_2.Text = "button7";
+            _2_2.UseVisualStyleBackColor = true;
+            _2_2.Click += _2_2_Click;
             // 
-            // button8
+            // _2_3
             // 
-            button8.Location = new Point(442, 220);
-            button8.Name = "button8";
-            button8.Size = new Size(126, 103);
-            button8.TabIndex = 7;
-            button8.Text = "button8";
-            button8.UseVisualStyleBackColor = true;
+            _2_3.Location = new Point(442, 220);
+            _2_3.Name = "_2_3";
+            _2_3.Size = new Size(126, 103);
+            _2_3.TabIndex = 7;
+            _2_3.Text = "button8";
+            _2_3.UseVisualStyleBackColor = true;
+            _2_3.Click += _2_3_Click;
             // 
-            // button9
+            // _3_1
             // 
-            button9.Location = new Point(178, 329);
-            button9.Name = "button9";
-            button9.Size = new Size(126, 103);
-            button9.TabIndex = 8;
-            button9.Text = "button9";
-            button9.UseVisualStyleBackColor = true;
+            _3_1.Location = new Point(178, 329);
+            _3_1.Name = "_3_1";
+            _3_1.Size = new Size(126, 103);
+            _3_1.TabIndex = 8;
+            _3_1.Text = "button9";
+            _3_1.UseVisualStyleBackColor = true;
+            _3_1.Click += _3_1_Click;
             // 
-            // button10
+            // _3_2
             // 
-            button10.Location = new Point(310, 329);
-            button10.Name = "button10";
-            button10.Size = new Size(126, 103);
-            button10.TabIndex = 9;
-            button10.UseVisualStyleBackColor = true;
+            _3_2.Location = new Point(310, 329);
+            _3_2.Name = "_3_2";
+            _3_2.Size = new Size(126, 103);
+            _3_2.TabIndex = 9;
+            _3_2.UseVisualStyleBackColor = true;
+            _3_2.Click += _3_2_Click;
             // 
-            // button11
+            // _3_3
             // 
-            button11.Location = new Point(442, 329);
-            button11.Name = "button11";
-            button11.Size = new Size(126, 103);
-            button11.TabIndex = 10;
-            button11.Text = "button11";
-            button11.UseVisualStyleBackColor = true;
+            _3_3.Location = new Point(442, 329);
+            _3_3.Name = "_3_3";
+            _3_3.Size = new Size(126, 103);
+            _3_3.TabIndex = 10;
+            _3_3.Text = "button11";
+            _3_3.UseVisualStyleBackColor = true;
+            _3_3.Click += _3_3_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(338, 42);
+            label1.Name = "label1";
+            label1.Size = new Size(59, 25);
+            label1.TabIndex = 11;
+            label1.Text = "label1";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(864, 573);
-            Controls.Add(button11);
-            Controls.Add(button10);
-            Controls.Add(button9);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(label1);
+            Controls.Add(_3_3);
+            Controls.Add(_3_2);
+            Controls.Add(_3_1);
+            Controls.Add(_2_3);
+            Controls.Add(_2_2);
+            Controls.Add(_2_1);
+            Controls.Add(_1_3);
+            Controls.Add(_1_1);
+            Controls.Add(_1_2);
             Controls.Add(button2);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Button button1;
         private Button button2;
-        private Button button3;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Button button7;
-        private Button button8;
-        private Button button9;
-        private Button button10;
-        private Button button11;
+        private Button _1_2;
+        private Button _1_1;
+        private Button _1_3;
+        private Button _2_1;
+        private Button _2_2;
+        private Button _2_3;
+        private Button _3_1;
+        private Button _3_2;
+        private Button _3_3;
+        private Label label1;
     }
 }
