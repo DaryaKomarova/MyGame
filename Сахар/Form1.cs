@@ -27,9 +27,9 @@ namespace Сахар
                 text.Text = "";
             }
             //обнуляем значение
-            for(int i = 0; i < 3; i++)
+            for (int i = 0; i < 3; i++)
             {
-                for(int j = 0; j < 3; j++)
+                for (int j = 0; j < 3; j++)
                 {
                     boardValues[i, j] = Value.empty;
                 }
@@ -90,57 +90,59 @@ namespace Сахар
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MakeTurn(0, 0, turn ? Value.L : Value.E);//если прав у,не нет х, для очер
+            MakeTurn(0, 0, turn ? Value.O : Value.X);//если прав у,не нет х, для очер
             _1_1.Enabled = false;
         }
 
         private void _1_2_Click(object sender, EventArgs e)
         {
-            MakeTurn(0, 1, turn ? Value.L : Value.E);
+            MakeTurn(0, 1, turn ? Value.O : Value.X);
             _1_2.Enabled = false;
         }
 
         private void _1_3_Click(object sender, EventArgs e)
         {
-            MakeTurn(0, 2, turn ? Value.L : Value.E);
+            MakeTurn(0, 2, turn ? Value.O : Value.X);
             _1_3.Enabled = false;
         }
 
         private void _2_1_Click(object sender, EventArgs e)
         {
-            MakeTurn(1, 0, turn ? Value.L : Value.E);
+            MakeTurn(1, 0, turn ? Value.O : Value.X);
             _2_1.Enabled = false;
         }
 
         private void _2_2_Click(object sender, EventArgs e)
         {
-            MakeTurn(1, 1, turn ? Value.L : Value.E);
+            MakeTurn(1, 1, turn ? Value.O : Value.X);
             _2_2.Enabled = false;
         }
 
         private void _2_3_Click(object sender, EventArgs e)
         {
-            MakeTurn(1, 2, turn ? Value.L : Value.E);
+            MakeTurn(1, 2, turn ? Value.O : Value.X);
             _2_3.Enabled = false;
         }
 
         private void _3_1_Click(object sender, EventArgs e)
         {
-            MakeTurn(2, 0, turn ? Value.L : Value.E);
+            MakeTurn(2, 0, turn ? Value.O : Value.X);
             _3_1.Enabled = false;
         }
 
         private void _3_2_Click(object sender, EventArgs e)
         {
-            MakeTurn(2, 1, turn ? Value.L : Value.E);
+            MakeTurn(2, 1, turn ? Value.O : Value.X);
             _3_2.Enabled = false;
         }
 
         private void _3_3_Click(object sender, EventArgs e)
         {
-            MakeTurn(2, 2, turn ? Value.L : Value.E);
+            MakeTurn(2, 2, turn ? Value.O : Value.X);
             _3_3.Enabled = false;
         }
+
+
     }
 
 
@@ -151,6 +153,6 @@ namespace Сахар
     }
     public enum Value
     {
-        L, E, empty
+        O, X, empty
     }
 }
