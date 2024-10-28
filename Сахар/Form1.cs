@@ -5,9 +5,8 @@ namespace Сахар
     public partial class Form1 : Form
     {
         private GameType gameType;
-        private Value[,] boardValues = new Value[3, 3];
+        private Logic logic;
         private Button[,] buttons = new Button[3, 3];
-        private bool turn;
 
         public Form1()
         {
@@ -22,130 +21,125 @@ namespace Сахар
             buttons[2, 1] = _3_2;
             buttons[2, 2] = _3_3;
             //очистка текста
-            foreach (var text in buttons)
-            {
-                text.Text = "";
-            }
-            //обнуляем значение
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    boardValues[i, j] = Value.empty;
-                }
-            }
+            logic = new Logic();
+            RestartGame();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             gameType = GameType.PvsC;
+            RestartGame();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             gameType = GameType.PvsP;
+            RestartGame();
         }
         // сделать ходы
-        private void MakeTurn(int i, int j, Value value)
+
+        private void MakeTurn(int i, int j)
         {
-            buttons[i, j].Text = value.ToString();
-            boardValues[i, j] = value;
-            turn = !turn;
-            CheckWin(value);
+            label1.Text = $"Ход игрока - {logic.Turn.ToString()}"; //Указываем того, кто ходит
+            logic.MakeTurn(i, j); //ходим на эту клетку
+            ReloadValues();//Перезагружаем все значения
+            if (logic.CheckWin(logic.Turn)) //проверяем, выиграли ли мы
+            {
+                label1.Text = $"Игрок {logic.Turn.ToString()} выиграл!";
+                StopGame();
+            }
         }
 
-        private void CheckWin(Value value)
+        private void StopGame()
         {
-            for (int stroka = 0; stroka < 3; stroka++)
+            foreach (var button in buttons)
             {
-                if (boardValues[stroka, 0] == value &&
-                    boardValues[stroka, 1] == value &&
-                    boardValues[stroka, 2] == value)
+                button.Enabled = false;
+            }
+        }
+
+        private void RestartGame()
+        {
+            foreach (var button in buttons)
+            {
+                //делаем работающими кнопки и убираем текст на них
+                button.Enabled = true;
+                button.Text = string.Empty;
+            }
+            logic.RestartValues();
+        }
+
+        public void ReloadValues()
+        {
+            Value[,] values = logic.BoardValues;
+            for(int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
                 {
-                    label1.Text = value.ToString() + " - w1n!!!";
+                    if (values[i,j] == Value.empty)
+                    {
+                        buttons[i, j].Text = string.Empty;
+                        continue;
+                    }
+                    buttons[i, j].Text = values[i, j].ToString();
                 }
-            }
-            for (int stolbec = 0; stolbec < 3; stolbec++)
-            {
-                if (boardValues[0, stolbec] == value &&
-                    boardValues[1, stolbec] == value &&
-                    boardValues[2, stolbec] == value)
-                {
-                    label1.Text = value.ToString() + " - w1n!!!";
-                }
-            }
-            if (boardValues[0, 0] == value &&
-                    boardValues[1, 1] == value &&
-                    boardValues[2, 2] == value)
-            {
-                label1.Text = value.ToString() + " - w1n!!!";
-            }
-            if (boardValues[0, 2] == value &&
-                    boardValues[1, 1] == value &&
-                    boardValues[2, 0] == value)
-            {
-                label1.Text = value.ToString() + " - w1n!!!";
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            MakeTurn(0, 0, turn ? Value.O : Value.X);//если прав у,не нет х, для очер
+            MakeTurn(0, 0);//если прав у,не нет х, для очер
             _1_1.Enabled = false;
         }
 
         private void _1_2_Click(object sender, EventArgs e)
         {
-            MakeTurn(0, 1, turn ? Value.O : Value.X);
+            MakeTurn(0, 1);
             _1_2.Enabled = false;
         }
 
         private void _1_3_Click(object sender, EventArgs e)
         {
-            MakeTurn(0, 2, turn ? Value.O : Value.X);
+            MakeTurn(0, 2);
             _1_3.Enabled = false;
         }
 
         private void _2_1_Click(object sender, EventArgs e)
         {
-            MakeTurn(1, 0, turn ? Value.O : Value.X);
+            MakeTurn(1, 0);
             _2_1.Enabled = false;
         }
 
         private void _2_2_Click(object sender, EventArgs e)
         {
-            MakeTurn(1, 1, turn ? Value.O : Value.X);
+            MakeTurn(1, 1);
             _2_2.Enabled = false;
         }
 
         private void _2_3_Click(object sender, EventArgs e)
         {
-            MakeTurn(1, 2, turn ? Value.O : Value.X);
+            MakeTurn(1, 2);
             _2_3.Enabled = false;
         }
 
         private void _3_1_Click(object sender, EventArgs e)
         {
-            MakeTurn(2, 0, turn ? Value.O : Value.X);
+            MakeTurn(2, 0);
             _3_1.Enabled = false;
         }
 
         private void _3_2_Click(object sender, EventArgs e)
         {
-            MakeTurn(2, 1, turn ? Value.O : Value.X);
+            MakeTurn(2, 1);
             _3_2.Enabled = false;
         }
 
         private void _3_3_Click(object sender, EventArgs e)
         {
-            MakeTurn(2, 2, turn ? Value.O : Value.X);
+            MakeTurn(2, 2);
             _3_3.Enabled = false;
         }
-
-
     }
-
-
     public enum GameType
     {
         PvsP,
