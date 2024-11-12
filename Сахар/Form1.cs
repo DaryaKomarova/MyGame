@@ -1,3 +1,4 @@
+using GameLibrary;
 using System.Media;
 
 namespace Сахар
@@ -71,12 +72,12 @@ namespace Сахар
 
         public void ReloadValues()
         {
-            Value[,] values = logic.BoardValues;
+            var values = logic.BoardValues;
             for(int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    if (values[i,j] == Value.empty)
+                    if (values[i,j] == null)
                     {
                         buttons[i, j].Text = string.Empty;
                         continue;
@@ -139,14 +140,5 @@ namespace Сахар
             MakeTurn(2, 2);
             _3_3.Enabled = false;
         }
-    }
-    public enum GameType
-    {
-        PvsP,
-        PvsC
-    }
-    public enum Value
-    {
-        O, X, empty
     }
 }

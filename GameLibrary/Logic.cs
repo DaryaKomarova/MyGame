@@ -4,45 +4,54 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Сахар
+namespace GameLibrary
 {
-    internal class Logic
+    public class Logic
     {
-        private Value[,] boardValues = new Value[3, 3];
-        public Value[,] BoardValues => boardValues;
-        private bool turn;
-        public Value Turn => !turn ? Value.X : Value.O;
+        private Value?[,] boardValues = new Value?[3, 3];
+        public Value?[,] BoardValues => boardValues;
+        public Value Turn { get; set; }
 
         //очищаем поле при создании
-        public Logic()
+        public Logic(Value turn=Value.X)
         {
+            this.Turn = turn;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    boardValues[i, j] = Value.empty;
+                    boardValues[i, j] = null;
                 }
             }
         }
 
-        public void RestartValues()
+        public void RestartValues(Value turn=Value.X)
         {
-            for(int i = 0;i < 3;i++)
+            Turn = turn;
+            for (int i = 0; i < 3; i++)
             {
-                for( int j = 0;j < 3;j++)
+                for (int j = 0; j < 3; j++)
                 {
-                    boardValues[i,j] = Value.empty;
+                    boardValues[i, j] =null;
                 }
             }
         }
 
         public void MakeTurn(int i, int j)
         {
-            Value value = turn ? Value.X : Value.O;
-            boardValues[i, j] = value;
-            turn = !turn;
+            boardValues[i, j] = Turn;
+
+            if (Turn == Value.X)
+            {
+                Turn = Value.O;
+            }
+            else
+            {
+                Turn = Value.X;
+            }
         }
-           
+
+
         public bool CheckWin(Value value)
         {
             for (int stroka = 0; stroka < 3; stroka++)
