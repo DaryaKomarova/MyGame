@@ -187,9 +187,8 @@
             label1.Location = new Point(248, 34);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(101, 20);
+            label1.Size = new Size(0, 20);
             label1.TabIndex = 11;
-            label1.Text = "Ход игрока - ";
             // 
             // Form1
             // 

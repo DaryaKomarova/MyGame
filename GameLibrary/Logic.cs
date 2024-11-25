@@ -13,7 +13,7 @@ namespace GameLibrary
         public Value Turn { get; set; }
 
         //очищаем поле при создании
-        public Logic(Value turn=Value.X)
+        public Logic(Value turn = Value.X)
         {
             this.Turn = turn;
             for (int i = 0; i < 3; i++)
@@ -25,22 +25,28 @@ namespace GameLibrary
             }
         }
 
-        public void RestartValues(Value turn=Value.X)
+        public void RestartValues(Value turn = Value.X)
         {
             Turn = turn;
             for (int i = 0; i < 3; i++)
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    boardValues[i, j] =null;
+                    boardValues[i, j] = null;
                 }
             }
         }
 
         public void MakeTurn(int i, int j)
         {
+            if (i < 0 || i > 2)
+                return;
+            else if (j < 0 || j > 2)
+                return;
+            if (boardValues[i, j] != null)
+                return;
+            //Если значение ячейки не пустое => возвращает и не меняет ход
             boardValues[i, j] = Turn;
-
             if (Turn == Value.X)
             {
                 Turn = Value.O;

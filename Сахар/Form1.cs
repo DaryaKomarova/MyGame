@@ -38,17 +38,22 @@ namespace Сахар
             RestartGame();
         }
         // сделать ходы
-
+        private void UpdateTurnText(Value val)
+        {
+            label1.Text = $"Ход игрока - {val.ToString()}";
+        }
         private void MakeTurn(int i, int j)
         {
-            label1.Text = $"Ход игрока - {logic.Turn.ToString()}"; //Указываем того, кто ходит
+            Value val = logic.Turn == Value.X ? Value.O : Value.X;
+            UpdateTurnText(val); //Указываем того, кто ходит
             logic.MakeTurn(i, j); //ходим на эту клетку
-            ReloadValues();//Перезагружаем все значения
-            if (logic.CheckWin(logic.Turn)) //проверяем, выиграли ли мы
+            val = val == Value.X ? Value.O : Value.X;
+            if(logic.CheckWin(val)) //проверяем, выиграли ли мы
             {
-                label1.Text = $"Игрок {logic.Turn.ToString()} выиграл!";
+                label1.Text = $"Игрок {val} выиграл!";
                 StopGame();
             }
+            ReloadValues();//Перезагружаем все значения
         }
 
         private void StopGame()
