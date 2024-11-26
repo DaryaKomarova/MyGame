@@ -72,7 +72,7 @@ namespace TestProject1111
         {
             //Нельзя выйти за границы карты
             gameLogic.MakeTurn(3, 3);
-            gameLogic.MakeTurn(-3, -1241231);
+            gameLogic.MakeTurn(-3, 1234998);
             gameLogic.MakeTurn(3, -3);
         }
     }
